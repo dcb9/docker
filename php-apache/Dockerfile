@@ -27,6 +27,10 @@ RUN apt-get update \
     && curl -sS https://getcomposer.org/installer \
         | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Apache 2 配置文件：/etc/apache2/apache2.conf
+# 给 Apache 2 设置一个默认服务名，避免启动时给个提示让人紧张.
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # 配置默认放置 App 的目录
 RUN mkdir -p /app && rm -rf /var/www/html && ln -s /app /var/www/html
 COPY . /app
