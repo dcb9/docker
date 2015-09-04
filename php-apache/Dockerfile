@@ -6,6 +6,7 @@ MAINTAINER Captain Dao <support@daocloud.io>
 # APT 自动安装 PHP 相关的依赖包，如需其他依赖包在此添加
 RUN apt-get update \
     && apt-get -y install \
+        expect \
         curl \
         wget \
         apache2 \
@@ -36,6 +37,9 @@ RUN mkdir -p /app && rm -rf /var/www/html && ln -s /app /var/www/html
 COPY . /app
 WORKDIR /app
 RUN chmod 755 ./start.sh
+# 安装 oneapm
+RUN sh ./oneapm_install.sh \
+    && rm ./oneapm_install.sh
 
 EXPOSE 80
 CMD ["./start.sh"]
