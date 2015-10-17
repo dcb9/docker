@@ -1,0 +1,5 @@
+app:
+  build: .
+  #volumes:
+    # - your-php-src-code:/php-src
+  command: "cat" # http://stackoverflow.com/questions/2935183/bash-infinite-sleep-infinite-blocking
