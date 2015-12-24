@@ -7,4 +7,4 @@ COPY rootCA.pem /ngrok/assets/client/tls/ngrokroot.crt
 COPY device.* /
 RUN /build.sh
 
-CMD exec /ngrok/bin/ngrokd -tlsKey=/server.key -tlsCrt=/server.crt -domain="${DOMAIN}" -httpAddr=${HTTP_ADDR} -httpsAddr=${HTTPS_ADDR} -tunnelAddr=${TUNNEL_ADDR}
+CMD exec /ngrok/bin/ngrokd -tlsKey=/device.key -tlsCrt=/device.crt -domain="${DOMAIN}" -httpAddr=${HTTP_ADDR} -httpsAddr=${HTTPS_ADDR} -tunnelAddr=${TUNNEL_ADDR}
