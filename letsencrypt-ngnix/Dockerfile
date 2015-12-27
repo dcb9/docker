@@ -7,6 +7,6 @@ RUN apt-get update \
         python \
     && apt-get clean \
     && apt-get autoclean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY letsencrypt.conf /etc/nginx/conf.d/
