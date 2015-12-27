@@ -3,7 +3,7 @@ FROM daocloud.io/nginx
 MAINTAINER bob <bob@phpor.me>
 
 RUN apt-get update \
-    && apt-get -y wget \
+    && apt-get -y install wget \
         python \
     && apt-get clean \
     && apt-get autoclean \
